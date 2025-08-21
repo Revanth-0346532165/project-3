@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>My Portfolio</title>
+  <meta name="description" content="Personal portfolio showcasing background and technical skills." />
+  <style>
+    :root {
+      --bg: #0f172a;        /* slate-900 */
+      --card: #111827;      /* gray-900 */
+      --muted: #94a3b8;     /* slate-400 */
+      --text: #e5e7eb;      /* gray-200 */
+      --accent: #22d3ee;    /* cyan-400 */
+      --ring: #334155;      /* slate-700 */
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; background: var(--bg); color: var(--text); font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    header {
+      position: sticky; top: 0; z-index: 10;
+      backdrop-filter: blur(6px);
+      background: color-mix(in srgb, var(--bg) 85%, transparent);
+      border-bottom: 1px solid var(--ring);
+    }
+    .container { max-width: 1000px; margin: 0 auto; padding: 1.2rem; }
+    .brand { display: flex; align-items: baseline; gap: .6rem; }
+    .brand h1 { margin: 0; font-size: 1.25rem; letter-spacing: .3px; }
+    nav { margin-left: auto; display: flex; gap: 1rem; }
+    .row { display: grid; gap: 1.2rem; }
+    @media (min-width: 860px) {
+      .row-2 { grid-template-columns: 1.2fr .8fr; align-items: start; }
+      .grid-3 { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    section { margin: 2rem 0; }
+    .card {
+      background: linear-gradient(180deg, color-mix(in srgb, var(--card) 80%, transparent), var(--card));
+      border: 1px solid var(--ring);
+      border-radius: 14px;
+      padding: 1.2rem;
+      box-shadow: 0 10px 24px rgba(0,0,0,.25);
+    }
+    h2 { margin: 0 0 .8rem 0; font-size: 1.35rem; }
+    p { line-height: 1.6; color: var(--text); }
+    .muted { color: var(--muted); }
+
+    .about-grid {
+      display: grid; gap: 1rem; align-items: center;
+    }
+    @media (min-width: 700px) {
+      .about-grid { grid-template-columns: 1.2fr .8fr; }
+    }
+    .avatar {
+      width: 180px; aspect-ratio: 1 / 1; border-radius: 50%;
+      border: 2px solid var(--ring); object-fit: cover; display: block;
+      box-shadow: 0 8px 20px rgba(0,0,0,.35);
+    }
+
+    .tags { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: .6rem; }
+    .tag {
+      border: 1px solid var(--ring); padding: .25rem .55rem; border-radius: 999px; font-size: .85rem; color: var(--muted);
+      background: color-mix(in srgb, var(--card) 85%, transparent);
+    }
+
+    .project { display: grid; gap: .6rem; }
+    .project h3 { margin: 0; font-size: 1.05rem; }
+    .project .meta { font-size: .9rem; color: var(--muted); }
+
+    footer {
+      margin-top: 3rem; padding: 2rem 0; border-top: 1px solid var(--ring); color: var(--muted);
+    }
+
+    .btn {
+      display: inline-block; padding: .6rem 1rem; border-radius: 10px;
+      border: 1px solid var(--ring); background: color-mix(in srgb, var(--card) 90%, transparent);
+    }
+    .btn:hover { transform: translateY(-1px); transition: transform .15s ease; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container" style="display:flex; align-items:center; gap:1rem;">
+      <div class="brand">
+        <h1>My Portfolio</h1>
+        <span class="muted">— Web Developer</span>
+      </div>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- ===================== feature/about branch ===================== -->
+    <section id="about" class="card">
+      <h2>About Me</h2>
+      <div class="about-grid">
+        <div>
+          <p><strong>Name:</strong> Your Name</p>
+          <p><strong>Education:</strong> B.Tech in Computer Science, XYZ University (2021–2025)</p>
+          <p><strong>Interests:</strong> Frontend Development, UI/UX, Open Source, Drones & Robotics</p>
+          <div class="tags">
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">Git & GitHub</span>
+          </div>
+          <p class="muted" style="margin-top:.8rem;">
+            I enjoy building clean, accessible web interfaces and learning by shipping small projects.
+          </p>
+          <a class="btn" href="mailto:you@example.com">Contact Me</a>
+        </div>
+        <div style="text-align:center;">
+          <!-- Replace src with your actual photo path -->
+          <img class="avatar" src="assets/me.jpg" alt="Photo of Your Name" />
+          <div class="muted" style="margin-top:.5rem;">(Add your photo to <code>assets/me.jpg</code>)</div>
+        </div>
+      </div>
+    </section>
+    <!-- =================== end feature/about branch =================== -->
+
+    <!-- =================== feature/projects branch ==================== -->
+    <section id="projects" class="card">
+      <h2>Projects</h2>
+      <div class="row grid-3">
+        <article class="project">
+          <h3>Project Alpha</h3>
+          <div class="meta">HTML, CSS</div>
+          <p>A simple landing page template focused on responsiveness and accessibility.</p>
+          <a class="btn" href="#" aria-disabled="true">View Repo</a>
+        </article>
+
+        <article class="project">
+          <h3>Beta Tracker</h3>
+          <div class="meta">JavaScript</div>
+          <p>A lightweight task tracker that stores data locally and supports drag & drop.</p>
+          <a class="btn" href="#" aria-disabled="true">View Repo</a>
+        </article>
+
+        <article class="project">
+          <h3>Gamma UI Kit</h3>
+          <div class="meta">HTML, CSS</div>
+          <p>A small collection of reusable UI components built with semantic HTML and modern CSS.</p>
+          <a class="btn" href="#" aria-disabled="true">View Repo</a>
+        </article>
+      </div>
+    </section>
+    <!-- ================= end feature/projects branch ================== -->
+
+  </main>
+
+  <footer class="container">
+    <div>© <span id="year"></span> Your Name. Built with basic HTML & CSS. Hosted on GitHub Pages.</div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
